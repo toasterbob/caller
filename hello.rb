@@ -15,3 +15,21 @@ post '/receive_sms' do
 
   response.to_xml
 end
+
+post '/send_sms' do
+
+  to = params["to"]
+  message = params["body"]
+
+  client = Twilio::REST::Client.new(
+    ENV["TWILIO_ACCOUNT_SID"],
+    ENV["TWILIO_AUTH_TOKEN"]
+  )
+
+  client.messages.create(
+    to: to,
+    from: "+12534263667",
+    body: message
+  )
+
+end
