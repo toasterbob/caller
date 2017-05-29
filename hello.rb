@@ -157,7 +157,7 @@ post '/make_call' do
   )
 end
 
-get 'rick-roll' do
+get '/rick-roll' do
   Twilio::TwiML::Response.new do |r|
     r.Say lyrics2
   end
