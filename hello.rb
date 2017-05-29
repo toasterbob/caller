@@ -142,6 +142,7 @@ end
 
 post '/make_call' do
   to = params["to"]
+  name = params["name"] || "monkey"
 
   @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
 
@@ -149,8 +150,13 @@ post '/make_call' do
     :from => '+12534263667',   # From your Twilio number
     :to => to,     # To any number
     # Fetch instructions from this URL when the call connects
-    :url => 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient'
+    r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
+    #:url => 'https://rick-roller.herokuapp.com/rick-roll'
   )
+end
+
+get 'rick-roll' do
+  r.Say lyrics2
 end
 
 
