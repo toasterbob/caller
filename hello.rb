@@ -142,6 +142,6 @@ end
 
 get '/hello-monkey' do
   Twilio::TwiML::Response.new do |r|
-    r.Say "Hello monkey. #{lyrics2} Goodbye monkey."
+    r.Say "Hello monkey. #{lyrics2} Goodbye monkey. Emma is getting annoyed.  Just saying..."
   end.text
 end
