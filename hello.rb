@@ -3,6 +3,11 @@ require 'twilio-ruby'
 require 'open-uri'
 require 'json'
 
+lyrics = "Never gonna give you up, never gonna let you down
+          Never gonna run around and desert you
+          Never gonna make you cry, never gonna say goodbye
+          Never gonna tell a lie and hurt you"
+
 get '/' do
   "Hello World!"
 end
@@ -37,6 +42,8 @@ post '/receive_sms' do
       r.message "Goodbye"
     elsif body.include?("advice")
       r.message get_advice
+    elsif body.include?("Rick") || body.include?("Astley")
+      r.message lyrics
     else
       r.message "Thanks for the crackerjacks!"
     end
