@@ -153,15 +153,15 @@ post '/make_call' do
     # Twilio::TwiML::Response.new do |r|
     #   r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
     # end
-    :url => 'https://rick-roller.herokuapp.com/hello-monkey'
+    :url => 'http://twimlets.com/message?Message%5B0%5D=Hello%20Monkey.%20%0ANever%20gonna%20give%20you%20up%2C%20never%20gonna%20let%20you%20down%0ANever%20gonna%20run%20around%20and%20desert%20you.%0ANever%20gonna%20make%20you%20cry%2C%20never%20gonna%20say%20goodbye%0ANever%20gonna%20tell%20a%20lie%20and%20hurt%20you.&Message%5B1%5D=http%3A%2F%2Fwww.marknoizumi.com%2Fcaller%2Fnever_gonna_give_you_up.mp3&'
   )
 end
 
-get '/rick-roll' do
-  Twilio::TwiML::Response.new do |r|
-    r.Say lyrics2
-  end
-end
+# get '/rick-roll' do
+#   Twilio::TwiML::Response.new do |r|
+#     r.Say lyrics2
+#   end
+# end
 
 
 get '/hello-monkey' do
@@ -176,7 +176,7 @@ get '/hello-monkey' do
     '+17604857276' => 'Marsha',
     '+17608314429' => 'Hiroshi',
   }
-  name = people[params['From']] || people[params['From']] || 'Monkey'
+  name = people[params['From']] || 'Monkey'
 
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
