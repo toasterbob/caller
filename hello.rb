@@ -150,15 +150,17 @@ post '/make_call' do
     :from => '+12534263667',   # From your Twilio number
     :to => to,     # To any number
     # Fetch instructions from this URL when the call connects
-    Twilio::TwiML::Response.new do |r|
-      r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
-    end
-    #:url => 'https://rick-roller.herokuapp.com/rick-roll'
+    # Twilio::TwiML::Response.new do |r|
+    #   r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
+    # end
+    :url => 'https://rick-roller.herokuapp.com/rick-roll'
   )
 end
 
 get 'rick-roll' do
-  r.Say lyrics2
+  Twilio::TwiML::Response.new do |r|
+    r.Say lyrics2
+  end
 end
 
 
