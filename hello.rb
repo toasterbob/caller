@@ -147,6 +147,10 @@ get '/hello-monkey' do
     '+19515994796' => 'Noizumi Person',
     '+15103948491' => 'Emma Chun',
     '+19542782210' => 'Mark Chun',
+    '+12089200640' => 'Witch Boy',
+    '+15102990084' => 'Robinator',
+    '+17604857276' => 'Marsha',
+    '+17608314429' => 'Hiroshi',
   }
   name = people[params['From']] || 'Monkey'
 
