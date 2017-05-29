@@ -141,7 +141,15 @@ post '/send_sms' do
 end
 
 get '/hello-monkey' do
+  people = {
+    '+13105625250' => 'Ambah Chun',
+    '+19517190952' => 'Amy Chun',
+    '+19515994796' => 'Noizumi Person',
+    '+15103948491' => 'Emma Noizumi',
+  }
+  name = people[params['From']] || 'Monkey'
+
   Twilio::TwiML::Response.new do |r|
-    r.Say "Hello monkey. #{lyrics2} Goodbye monkey."
+    r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}."
   end.text
 end
