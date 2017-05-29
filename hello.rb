@@ -3,10 +3,10 @@ require 'twilio-ruby'
 require 'open-uri'
 require 'json'
 
-lyrics = "Never gonna give you up, never gonna let you down
+lyrics = ["Never gonna give you up, never gonna let you down
           Never gonna run around and desert you
           Never gonna make you cry, never gonna say goodbye
-          Never gonna tell a lie and hurt you"
+          Never gonna tell a lie and hurt you"]
 
 get '/' do
   "Hello World!"
@@ -30,6 +30,47 @@ def get_advice
 
 end
 
+def get_response(input)
+  url = 'http://www.cleverbot.com/getreply?key=' + ENV["CLEVERBOT_API"] + "&input=" + input
+  # url = 'http://www.cleverbot.com/getreply?key=' + "API" + "&input=" + input
+  r = open(url)
+
+  if r.status[0] == "200"
+    doc = ""
+
+    r.each do |line|
+      doc << line
+    end
+
+    doc = JSON.parse(doc, :symbolize_names => true)
+    response = doc[:output]
+
+    return response
+  end
+
+
+end
+
+
+def get_quote
+  r = open('http://www.yerkee.com/api/fortune')
+
+  if r.status[0] == "200"
+    doc = ""
+
+    r.each do |line|
+      doc << line
+    end
+
+    doc = JSON.parse(doc, :symbolize_names => true)
+    quote = doc[:fortune]
+
+    return quote
+  end
+
+
+end
+
 
 post '/receive_sms' do
   content_type 'text/xml'
@@ -43,9 +84,11 @@ post '/receive_sms' do
     elsif body.include?("advice")
       r.message get_advice
     elsif body.include?("rick") || body.include?("astley")
-      r.message lyrics
+      r.message lyrics[0]
+    elsif body.include?("quote")
+      r.message get_quote
     else
-      r.message "Thanks for the crackerjacks!"
+      r.message get_response(body)
     end
   end
 
