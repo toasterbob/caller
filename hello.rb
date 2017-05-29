@@ -152,6 +152,6 @@ get '/hello-monkey' do
 
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}."
-    r.Play "https://github.com/toasterbob/caller/blob/master/never_gonna_give_you_up.mp3"
+    r.Play "http://www.marknoizumi.com/caller/never_gonna_give_you_up.mp3"
   end.text
 end
