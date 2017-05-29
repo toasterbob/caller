@@ -10,7 +10,13 @@ post '/receive_sms' do
   content_type 'text/xml'
 
   response = Twilio::TwiML::Response.new do |r|
-    r.Message "Hey thanks for messaging me!"
+    if body == "hello"
+      r.Message "Hi!"
+    elsif body == "bye"
+      r.message "Goodbye"
+    else
+      r.message "Thanks for the crackerjacks!"
+    end
   end
 
   response.to_xml
