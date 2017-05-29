@@ -140,6 +140,18 @@ post '/send_sms' do
 
 end
 
+post '/make_call' do
+  @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
+
+  @call = @client.account.calls.create(
+    :from => '+14159341234',   # From your Twilio number
+    :to => "+19542782210",     # To any number
+    # Fetch instructions from this URL when the call connects
+    :url => 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient'
+  )
+end
+
+
 get '/hello-monkey' do
   people = {
     '+13105625250' => 'Ambah Chun',
@@ -155,12 +167,12 @@ get '/hello-monkey' do
   name = people[params['From']] || 'Monkey'
 
   Twilio::TwiML::Response.new do |r|
+    r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
+    r.Play "http://www.marknoizumi.com/caller/never_gonna_give_you_up.mp3"
+    r.Say "Why are you still here?"
 
     r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
       #g.Say 'To speak to a real monkey, press 1.'
-      r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
-      r.Play "http://www.marknoizumi.com/caller/never_gonna_give_you_up.mp3"
-      r.Say "Why are you still here?"
       g.Say 'Press any key to start over.'
     end
 
