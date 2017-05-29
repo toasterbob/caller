@@ -42,7 +42,7 @@ post '/receive_sms' do
       r.message "Goodbye"
     elsif body.include?("advice")
       r.message get_advice
-    elsif body.include?("Rick") || body.include?("Astley")
+    elsif body.include?("rick") || body.include?("astley")
       r.message lyrics
     else
       r.message "Thanks for the crackerjacks!"
