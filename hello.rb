@@ -155,12 +155,12 @@ get '/hello-monkey' do
   name = people[params['From']] || 'Monkey'
 
   Twilio::TwiML::Response.new do |r|
-    r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
-    r.Play "http://www.marknoizumi.com/caller/never_gonna_give_you_up.mp3"
-    r.Say "Why are you still here?"
 
     r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
       #g.Say 'To speak to a real monkey, press 1.'
+      r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
+      r.Play "http://www.marknoizumi.com/caller/never_gonna_give_you_up.mp3"
+      r.Say "Why are you still here?"
       g.Say 'Press any key to start over.'
     end
 
