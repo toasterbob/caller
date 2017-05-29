@@ -8,7 +8,8 @@ end
 
 post '/receive_sms' do
   content_type 'text/xml'
-
+  body = params['Body'].downcase
+  
   response = Twilio::TwiML::Response.new do |r|
     if body == "hello"
       r.Message "Hi!"
