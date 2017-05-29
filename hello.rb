@@ -145,13 +145,13 @@ get '/hello-monkey' do
     '+13105625250' => 'Ambah Chun',
     '+19517190952' => 'Amy Chun',
     '+19515994796' => 'Noizumi Person',
-    '+15103948491' => 'Emma Noizumi',
+    '+15103948491' => 'Emma Chun',
     '+19542782210' => 'Mark Chun',
   }
   name = people[params['From']] || 'Monkey'
 
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}."
-    r.Play "./never_gonna_give_you_up.mp3"
+    r.Play "https://github.com/toasterbob/caller/blob/master/never_gonna_give_you_up.mp3"
   end.text
 end
