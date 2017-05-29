@@ -141,11 +141,13 @@ post '/send_sms' do
 end
 
 post '/make_call' do
+  to = params["to"]
+
   @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
 
   @call = @client.account.calls.create(
     :from => '+14159341234',   # From your Twilio number
-    :to => "+19542782210",     # To any number
+    :to => to,     # To any number
     # Fetch instructions from this URL when the call connects
     :url => 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient'
   )
