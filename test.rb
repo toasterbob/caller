@@ -1,10 +1,9 @@
 require 'open-uri'
 require 'json'
 
-def get_response(input)
-  # str = 'http://www.cleverbot.com/getreply?key=' + ENV["CLEVERBOT_API"] + "&input=" + input
-  url = 'http://www.cleverbot.com/getreply?key=' +  + "&input=" + input
-  r = open(url)
+def chuck_norris
+
+  r = open('http://api.icndb.com/jokes/random')
 
   if r.status[0] == "200"
     doc = ""
@@ -14,7 +13,7 @@ def get_response(input)
     end
 
     doc = JSON.parse(doc, :symbolize_names => true)
-    response = doc[:output]
+    response = doc[:value][:joke]
 
     return response
   end
@@ -22,4 +21,4 @@ def get_response(input)
 
 end
 
-puts get_response("Do you like chocolate")
+puts chuck_norris

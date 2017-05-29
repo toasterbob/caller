@@ -47,8 +47,6 @@ def get_response(input)
 
     return response
   end
-
-
 end
 
 
@@ -67,8 +65,24 @@ def get_quote
 
     return quote
   end
+end
 
+def chuck_norris
 
+  r = open('http://api.icndb.com/jokes/random')
+
+  if r.status[0] == "200"
+    doc = ""
+
+    r.each do |line|
+      doc << line
+    end
+
+    doc = JSON.parse(doc, :symbolize_names => true)
+    response = doc[:value][:joke]
+
+    return response
+  end
 end
 
 
@@ -81,12 +95,20 @@ post '/receive_sms' do
       r.Message "Hi!"
     elsif body.include?("bye")
       r.message "Goodbye"
+    elsif body.include?("dice")
+      r.message "I rolled a #{rand(6) + 1} and a #{rand(6) + 1}."
     elsif body.include?("advice")
       r.message get_advice
     elsif body.include?("rick") || body.include?("astley")
       r.message lyrics[0]
     elsif body.include?("quote")
       r.message get_quote
+    elsif body.include?("twin peaks") || body.include?("agent cooper")
+      r.message "Lunch was, uh, Six dollars and thirty one cents at the Lamplighter Inn. That's on Highway 2, near Lewis Fork. That was a tuna fish sandwich, slice of cherry pie and a cup of coffee. Damn good food. And, Diane, if you ever get up this way, that cherry pie is worth a stop."
+    elsif body.include?("star wars")
+      r.message "Luke, I am your father!"
+    elsif body.include?("chuck norris")
+      r.message chuck_norris
     else
       r.message get_response(body)
     end
