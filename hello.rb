@@ -31,7 +31,7 @@ post '/receive_sms' do
   body = params['Body'].downcase
 
   response = Twilio::TwiML::Response.new do |r|
-    if body == "hello"
+    if body.include?("hello") || body.include?("hi")
       r.Message "Hi!"
     elsif body == "bye"
       r.message "Goodbye"
