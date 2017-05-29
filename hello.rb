@@ -137,6 +137,6 @@ end
 
 get '/hello-monkey' do
   Twilio::TwiML::Response.new do |r|
-    r.Say 'Hello Monkey'
+    r.Say 'Hello Monkey.' + lyrics 
   end.text
 end
