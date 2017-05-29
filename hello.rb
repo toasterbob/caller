@@ -143,6 +143,7 @@ end
 post '/make_call' do
   to = params["to"]
   name = params["name"] || "monkey"
+  url = 'http://twimlets.com/message?Message%5B0%5D=Hello%20' + name + '.%20%0ANever%20gonna%20give%20you%20up%2C%20never%20gonna%20let%20you%20down%0ANever%20gonna%20run%20around%20and%20desert%20you.%0ANever%20gonna%20make%20you%20cry%2C%20never%20gonna%20say%20goodbye%0ANever%20gonna%20tell%20a%20lie%20and%20hurt%20you.%0AGoodbye%20' + name + '.%20This%20song%20is%20for%20you&Message%5B1%5D=http%3A%2F%2Fwww.marknoizumi.com%2Fcaller%2Fnever_gonna_give_you_up.mp3&'
 
   @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
 
@@ -153,7 +154,7 @@ post '/make_call' do
     # Twilio::TwiML::Response.new do |r|
     #   r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
     # end
-    :url => "http://twimlets.com/message?Message%5B0%5D=Hello%20#{name}.%20%0ANever%20gonna%20give%20you%20up%2C%20never%20gonna%20let%20you%20down%0ANever%20gonna%20run%20around%20and%20desert%20you.%0ANever%20gonna%20make%20you%20cry%2C%20never%20gonna%20say%20goodbye%0ANever%20gonna%20tell%20a%20lie%20and%20hurt%20you.%0AGoodbye%20#{name}.%20This%20song%20is%20for%20you&Message%5B1%5D=http%3A%2F%2Fwww.marknoizumi.com%2Fcaller%2Fnever_gonna_give_you_up.mp3&""
+    :url => url
   )
 end
 
