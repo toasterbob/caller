@@ -153,7 +153,7 @@ post '/make_call' do
     # Twilio::TwiML::Response.new do |r|
     #   r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
     # end
-    :url => 'https://rick-roller.herokuapp.com/rick-roll'
+    :url => 'https://rick-roller.herokuapp.com/hello-monkey'
   )
 end
 
@@ -176,7 +176,7 @@ get '/hello-monkey' do
     '+17604857276' => 'Marsha',
     '+17608314429' => 'Hiroshi',
   }
-  name = people[params['From']] || 'Monkey'
+  name = people[params['From']] || people[params['From']] || 'Monkey'
 
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{name}. #{lyrics2} Goodbye #{name}. This song is for you"
