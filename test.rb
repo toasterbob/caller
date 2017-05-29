@@ -3,7 +3,7 @@ require 'json'
 
 def get_response(input)
   # str = 'http://www.cleverbot.com/getreply?key=' + ENV["CLEVERBOT_API"] + "&input=" + input
-  url = 'http://www.cleverbot.com/getreply?key=' + "CC2g9KbtVvRwl87D1nGBMdcBprw" + "&input=" + input
+  url = 'http://www.cleverbot.com/getreply?key=' +  + "&input=" + input
   r = open(url)
 
   if r.status[0] == "200"
