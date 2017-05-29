@@ -8,6 +8,11 @@ lyrics = ["Never gonna give you up, never gonna let you down
           Never gonna make you cry, never gonna say goodbye
           Never gonna tell a lie and hurt you"]
 
+lyrics2 = "Never gonna give you up, never gonna let you down.
+Never gonna run around and desert you
+Never gonna make you cry, never gonna say goodbye
+Never gonna tell a lie and hurt you"
+
 get '/' do
   "Hello World!"
 end
@@ -137,6 +142,6 @@ end
 
 get '/hello-monkey' do
   Twilio::TwiML::Response.new do |r|
-    r.Say "Hello monkey. #{lyrics}" 
+    r.Say "Hello monkey. #{lyrics2} Goodbye monkey." 
   end.text
 end
