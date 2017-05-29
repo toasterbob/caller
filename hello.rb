@@ -33,9 +33,9 @@ post '/receive_sms' do
   response = Twilio::TwiML::Response.new do |r|
     if body.include?("hello") || body.include?("hi")
       r.Message "Hi!"
-    elsif body == "bye"
+    elsif body.include?("bye")
       r.message "Goodbye"
-    elsif body == "advice"
+    elsif body.include?("advice")
       r.message get_advice
     else
       r.message "Thanks for the crackerjacks!"
