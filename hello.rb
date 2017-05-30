@@ -14,7 +14,7 @@ Never gonna make you cry, never gonna say goodbye
 Never gonna tell a lie and hurt you."
 
 get '/' do
-   send_file File.join(settings.public_folder, 'index.html')
+   send_file File.join(settings.public_folder, './index.html')
 end
 
 def get_advice
