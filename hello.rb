@@ -137,7 +137,7 @@ post '/send_sms' do
     from: "+12534263667",
     body: message
   )
-
+  redirect '/index.html'
 end
 
 post '/make_call' do
