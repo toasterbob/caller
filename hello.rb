@@ -161,6 +161,7 @@ post '/make_call' do
     # end
     :url => 'http://twimlets.com/message?Message%5B0%5D=Hello%20Monkey.%20%0ANever%20gonna%20give%20you%20up%2C%20never%20gonna%20let%20you%20down%0ANever%20gonna%20run%20around%20and%20desert%20you.%0ANever%20gonna%20make%20you%20cry%2C%20never%20gonna%20say%20goodbye%0ANever%20gonna%20tell%20a%20lie%20and%20hurt%20you.%0AGoodbye%20Monkey.%20This%20song%20is%20for%20you&Message%5B1%5D=http%3A%2F%2Fwww.marknoizumi.com%2Fcaller%2Fnever_gonna_give_you_up.mp3&'
   )
+  redirect '/index.html'
 end
 
 get '/make_call' do
