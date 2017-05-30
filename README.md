@@ -4,7 +4,7 @@
 [photojournal]: https://rick-roller.herokuapp.com/index.html
 
 ![rick]
-[rick]: ./assets/rick.png
+[rick]: http://www.marknoizumi.com/caller/assets/rick.png
 
 ## Rick Roller
 Rick Roller is based on the popular activity known as Rick Rolling, which consists of pranking people into listening to Rick Astley's song "Never Gonna Give You Up".
