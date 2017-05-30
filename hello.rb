@@ -137,6 +137,10 @@ post '/send_sms' do
     from: "+12534263667",
     body: message
   )
+
+end
+
+get '/send_sms' do
   redirect '/index.html'
 end
 
