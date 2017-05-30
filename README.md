@@ -79,11 +79,11 @@ Through the combination of APIs and random key words, the text interface can ans
 
 ![pic1]
 
-[pic1]: ./assets/image1.png
+[pic1]: ./assets/image1.PNG
 
 ![pic2]
 
-[pic2]: ./assets/image2.png
+[pic2]: ./assets/image2.PNG
 
 So if you give this out as a fake number, it might take someone a little while to catch on if they just send a series of text messages.  
 
