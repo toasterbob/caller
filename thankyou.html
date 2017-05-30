@@ -8,3 +8,22 @@
     <h1>Thank you!</h1>
   </body>
 </html>
+
+
+function handleSubmit(e) {
+  e.preventDefault();
+  var to = document.getElementById("to").value;
+  console.log(to);
+  $.ajax({
+    type: "POST",
+    url: "https://rick-roller.herokuapp.com/make_call",
+    to: to
+  })
+}
+
+var form = document.getElementById('my-form');
+if (form.attachEvent) {
+    form.attachEvent("submit", handleSubmit);
+} else {
+    form.addEventListener("submit", handleSubmit);
+}

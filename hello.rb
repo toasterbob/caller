@@ -14,7 +14,73 @@ Never gonna make you cry, never gonna say goodbye
 Never gonna tell a lie and hurt you."
 
 get '/' do
-  "Hello World!"
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Rick Roller</title>
+      <link rel="icon" type="image/gif/png" href="http://res.cloudinary.com/dseky3p5e/image/upload/c_crop,g_face,h_372,w_374/v1496101895/maxresdefault_yq2dvb.png">
+      <script src="https://use.fontawesome.com/b9970b0b6e.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Kumar+One" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <link href="./css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+
+
+      <nav>
+  			<div class="titles">Rick Roller</div>
+  			<div id="logo">
+  				<div>
+  						<a href="https://github.com/toasterbob/caller"><i class="fa fa-github" aria-hidden="true"></i></a>
+  				</div>
+  				<div>
+  						<a href="https://www.linkedin.com/in/mark-noizumi"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+  				</div>
+  			</div>
+  		</nav>
+
+      <div class="holder">
+        <div class="forms">
+          <div class="rick"></div>
+
+          <form id="my-form">
+            <br>
+            <div>
+              <p>Please enter a phone number (i.e. +12125551234)</p>
+              <label for="to"></label>
+              <input name="to" id="to">
+            </div>
+            <br>
+            <div>
+              <button type="submit">Never gonna give you up!</button>
+            </div>
+            <br>
+          </form>
+
+        </div>
+      </div>
+
+      <script>
+          $("#my-form").on("submit", event => {
+
+             event.preventDefault();
+
+             var to = document.getElementById("to").value;
+
+             console.log(to);
+             $.ajax({
+               url: 'https://rick-roller.herokuapp.com/make_call',
+               dataType: 'jsonp',
+               type: 'POST',
+               to: to,
+             });
+           });
+      </script>
+
+    </body>
+  </html>
+
 end
 
 def get_advice
@@ -141,6 +207,7 @@ post '/send_sms' do
 end
 
 post '/make_call' do
+
   to = params["to"]
   name = params["name"] || "monkey"
   # url = "http://twimlets.com/message?Message%5B0%5D=Hello%20" + name + '.%20%0ANever%20gonna%20give%20you%20up%2C%20never%20gonna%20let%20you%20down%0ANever%20gonna%20run%20around%20and%20desert%20you.%0ANever%20gonna%20make%20you%20cry%2C%20never%20gonna%20say%20goodbye%0ANever%20gonna%20tell%20a%20lie%20and%20hurt%20you.%0AGoodbye%20' + name + '.%20This%20song%20is%20for%20you&Message%5B1%5D=http%3A%2F%2Fwww.marknoizumi.com%2Fcaller%2Fnever_gonna_give_you_up.mp3&'
