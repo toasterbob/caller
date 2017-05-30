@@ -163,6 +163,10 @@ post '/make_call' do
   )
 end
 
+get '/make_call' do
+  redirect '/index.html'
+end
+
 # get '/rick-roll' do
 #   Twilio::TwiML::Response.new do |r|
 #     r.Say lyrics2
