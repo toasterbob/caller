@@ -77,6 +77,14 @@ end
 
 Through the combination of APIs and random key words, the text interface can answer lots of questions and spit out all sorts of interesting quotes and random advice.  Ultimately, though I decided to find a chatbot and feed the responses that didn't meet the other criteria into it.  So, in theory it can hold conversations.  
 
+![pic1]
+
+[pic1]: ./assets/image1.png
+
+![pic2]
+
+[pic2]: ./assets/image2.png
+
 So if you give this out as a fake number, it might take someone a little while to catch on if they just send a series of text messages.  
 
 ### Security for API Keys
