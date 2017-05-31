@@ -20,8 +20,7 @@ magic_eight = ["It is certain", "It is decidedly so", "Without a doubt",
               "Ask again later", "Better not tell you now", "Cannot predict now",
               "Concentrate and ask again", "Don't count on it", "My reply is no",
               "My sources say no", "Outlook not so good", "Very doubtful",
-              "If you have to ask the magic eight ball, you should rethink your
-              life choices"]
+              "If you have to ask the magic eight ball, you should rethink your life choices"]
 
 get '/' do
    redirect '/index.html'
