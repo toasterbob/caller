@@ -75,7 +75,7 @@ def chuck_norris
 end
 ```
 
-Through the combination of APIs and random key words, the text interface can answer lots of questions and spit out all sorts of interesting quotes and random advice.  Ultimately, though I decided to find a chatbot and feed the responses that didn't meet the other criteria into it.  So, in theory it can hold conversations.  For example:
+Through the combination of APIs and random key words, the text interface can answer lots of questions and spit out all sorts of interesting quotes and random advice.  Ultimately, though I decided to find a chatbot and feed the responses that didn't meet the other criteria into it.  So, it can hold conversations with people who message it.  For example:
 
 ![pic1]
 
