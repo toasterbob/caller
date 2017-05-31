@@ -90,6 +90,15 @@ def chuck_norris
   end
 end
 
+magic_eight = ["It is certain", "It is decidedly so", "Without a doubt",
+              "Yes definitely", "You may rely on it", "As I see it, yes",
+              "Most likely", "Magic eight this, monkey!", "Outlook good",
+              "Yes", "Signs point to yes", "Reply hazy try again",
+              "Ask again later", "Better not tell you now", "Cannot predict now",
+              "Concentrate and ask again", "Don't count on it", "My reply is no",
+              "My sources say no", "Outlook not so good", "Very doubtful",
+              "If you have to ask the magic eight ball, you should rethink your
+              life choices"]
 
 post '/receive_sms' do
   content_type 'text/xml'
@@ -100,6 +109,8 @@ post '/receive_sms' do
       r.Message "Hi!"
     elsif body.include?("bye")
       r.message "Goodbye"
+    elsif body.include?("magic") && body.include?("ball") && (body.include?("eight") || body.include?("8"))
+      r.message magic_eight(rand(magic_eight.length))
     elsif body.include?("dice")
       r.message "I rolled a #{rand(6) + 1} and a #{rand(6) + 1}."
     elsif body.include?("advice")
