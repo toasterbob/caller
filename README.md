@@ -75,7 +75,7 @@ def chuck_norris
 end
 ```
 
-Through the combination of APIs and random key words, the text interface can answer lots of questions and spit out all sorts of interesting quotes and random advice (there are multiple Easter eggs such as a magic 8-ball, a device dispenser, and even a Chuck Norris).  Ultimately, though I decided to find a chatbot and feed the responses that didn't meet the other criteria into it.  So, it can hold conversations with people who message it.  For example:
+Through the combination of APIs and random key words, the text interface can answer lots of questions and spit out all sorts of interesting quotes and random advice (there are multiple Easter eggs such as a magic 8-ball, a device dispenser, and even a Chuck Norris joke API).  Ultimately, though I decided to find a chatbot and feed the responses that didn't meet the other criteria into it.  So, it can hold conversations with people who message it.  For example:
 
 ![pic1]
 
