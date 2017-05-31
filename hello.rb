@@ -13,6 +13,16 @@ Never gonna run around and desert you.
 Never gonna make you cry, never gonna say goodbye
 Never gonna tell a lie and hurt you."
 
+magic_eight = ["It is certain", "It is decidedly so", "Without a doubt",
+              "Yes definitely", "You may rely on it", "As I see it, yes",
+              "Most likely", "Magic eight this, monkey!", "Outlook good",
+              "Yes", "Signs point to yes", "Reply hazy try again",
+              "Ask again later", "Better not tell you now", "Cannot predict now",
+              "Concentrate and ask again", "Don't count on it", "My reply is no",
+              "My sources say no", "Outlook not so good", "Very doubtful",
+              "If you have to ask the magic eight ball, you should rethink your
+              life choices"]
+
 get '/' do
    redirect '/index.html'
 end
@@ -90,15 +100,6 @@ def chuck_norris
   end
 end
 
-magic_eight = ["It is certain", "It is decidedly so", "Without a doubt",
-              "Yes definitely", "You may rely on it", "As I see it, yes",
-              "Most likely", "Magic eight this, monkey!", "Outlook good",
-              "Yes", "Signs point to yes", "Reply hazy try again",
-              "Ask again later", "Better not tell you now", "Cannot predict now",
-              "Concentrate and ask again", "Don't count on it", "My reply is no",
-              "My sources say no", "Outlook not so good", "Very doubtful",
-              "If you have to ask the magic eight ball, you should rethink your
-              life choices"]
 
 post '/receive_sms' do
   content_type 'text/xml'
