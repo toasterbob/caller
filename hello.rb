@@ -110,7 +110,7 @@ post '/receive_sms' do
     elsif body.include?("bye")
       r.message "Goodbye"
     elsif body.include?("magic") && body.include?("ball") && (body.include?("eight") || body.include?("8"))
-      r.message magic_eight(rand(magic_eight.length))
+      r.message magic_eight[rand(magic_eight.length)]
     elsif body.include?("dice")
       r.message "I rolled a #{rand(6) + 1} and a #{rand(6) + 1}."
     elsif body.include?("advice")
