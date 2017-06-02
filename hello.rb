@@ -105,11 +105,11 @@ post '/receive_sms' do
   body = params['Body'].downcase
 
   response = Twilio::TwiML::Response.new do |r|
-    if body.include?("hello") || body.include?("hi")
+    if body.include?("hello")
       r.Message "Hi!"
     elsif body.include?("bye")
       r.message "Goodbye"
-    elsif (body.include?("who") || body.include?("who's")) && body.include("this")
+    elsif body.include?("who") && body.include("this")
       r.message "I'll never tell"
     elsif body.include?("magic") && body.include?("ball") && (body.include?("eight") || body.include?("8"))
       r.message magic_eight[rand(magic_eight.length)]
