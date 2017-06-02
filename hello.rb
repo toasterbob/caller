@@ -109,7 +109,7 @@ post '/receive_sms' do
       r.Message "Hi!"
     elsif body.include?("bye")
       r.message "Goodbye"
-    elsif body.include?("who") && body.include?("this")
+    elsif body.include?("who") && (body.include?("this") || body.include?("are you"))
       r.message "I'll never tell"
     elsif body.include?("magic") && body.include?("ball") && (body.include?("eight") || body.include?("8"))
       r.message magic_eight[rand(magic_eight.length)]
